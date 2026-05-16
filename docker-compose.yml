@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  frontend:
+    image: jaydenturnerlang/frontend:latest
+    container_name: frontend
+    networks:
+      - appnet
+
+  backend:
+    image: jaydenturnerlang/backend:latest
+    container_name: backend
+    networks:
+      - appnet
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  nginx:
+    image: jaydenturnerlang/nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - appnet
+
+networks:
+  appnet:
+    driver: bridge
