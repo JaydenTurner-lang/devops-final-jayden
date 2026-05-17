@@ -15,7 +15,8 @@ A GitHub Actions CI/CD pipeline
 
 The goal is to demonstrate a complete DevOps workflow: build, containerize, orchestrate, and automate.
 
-Repo Structure 
+Repo Structure
+Code
 devops-final-jayden/
 │
 ├── backend/
@@ -40,33 +41,33 @@ devops-final-jayden/
 ├── docker-compose.yml
 └── .github/workflows/
     └── ci-cd.yml
-
-Running the Stack Locally
+🚀 Running the Stack Locally
 To build and run all services (frontend, backend, and Nginx), use:
-docker compose up --build -d 
 
+code 
+docker compose up --build -d
 Ports and URLs to Test
 All traffic flows through Nginx on port 80.
 
 After the stack is running, test:
 
-Frontend:  
+Frontend
 http://localhost
 
-Backend API:  
+Backend API
 http://localhost/api/ping
 
 These URLs verify that both services are reachable through the reverse proxy.
 
-Service Descriptions
-🎨 Frontend (React)
+ Service Descriptions
+ Frontend (React)
 Built using Node.js
 
 Served by Nginx
 
 Sends a request to /api/ping to display backend output
 
-Accessible at http://localhost
+Accessible at: http://localhost
 
 Backend (.NET Web API)
 Exposes a test endpoint:
@@ -75,9 +76,9 @@ GET /api/ping → returns JSON
 
 Runs inside its own container
 
-Routed through Nginx at http://localhost/api/ping
+Routed through Nginx at: http://localhost/api/ping
 
-Nginx Reverse Proxy
+ Nginx Reverse Proxy
 Acts as the single public entry point
 
 Routes:
@@ -88,7 +89,7 @@ Routes:
 
 Exposes port 80 to the host
 
-CI/CD Pipeline (GitHub Actions)
+ CI/CD Pipeline (GitHub Actions)
 The CI/CD workflow performs:
 
 Repository checkout
@@ -103,17 +104,20 @@ Docker image builds
 
 This pipeline demonstrates automated building and validation of the multi‑service application.
 
-Testing Instructions
+ Testing Instructions
 Backend Test
+Code
 GET http://localhost/api/ping
-Expected response 
+Expected response:
+
+Code
 { "message": "pong" }
-Frontend Test 
+Frontend Test
+Open:
+
+Code
 http://localhost
-
 Known Issues / Debugging Notes
-These notes document the troubleshooting process and show understanding of DevOps debugging:
-
 Backend container returns 404
 Issue traced to Dockerfile pathing and multi‑stage build behavior
 
@@ -145,7 +149,7 @@ Errors documented in logs
 
 Demonstrates understanding of pipeline structure even if final run fails
 
-📝 Conclusion
+Conclusion
 This project demonstrates:
 
 Full multi‑service architecture
