@@ -41,7 +41,7 @@ devops-final-jayden/
 ├── docker-compose.yml
 └── .github/workflows/
     └── ci-cd.yml
- Running the Stack Locally
+Running the Stack Locally
 To build and run all services (frontend, backend, and Nginx), use:
 
 code 
